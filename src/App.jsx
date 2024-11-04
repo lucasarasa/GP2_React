@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -6,9 +6,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom/cjs/react-router-
 import { Login } from './pages/Login/Login'
 import { Home } from './pages/HomePage/Home'
 import { Cadastro } from './pages/Cadastro/Cadastro'
+import { LoginComponent } from './components/componentLogin/LoginComponent'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
