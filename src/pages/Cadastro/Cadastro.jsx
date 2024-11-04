@@ -62,7 +62,7 @@ export function Cadastro() {
         </div>
         <div className="box-form-cad">
           <p className="box-form-cad-text">Já possui uma conta?</p>
-          <Link className="box-form-cad-link" to="/">
+          <Link className="box-form-cad-link" to="/login">
             <p>Login</p>
           </Link>
         </div>
