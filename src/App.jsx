@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
-import { Login } from './pages/Login'
-import { Home } from './pages/Home'
+import { Login } from './pages/Login/Login'
+import { Home } from './pages/HomePage/Home'
 
 function App() {
   const [count, setCount] = useState(0)
