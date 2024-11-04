@@ -1,29 +1,56 @@
 import { useState, useEffect } from "react";
 import "./Login.css";
 import { api } from "../../api/api";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export function Login() {
-  const [loading, setLoading] = useState();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [showForm, setShowForm] = useState(false);
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [sucessMessage, setSucessMessage] = useState("");
+  const [usuarios, setUsuarios] = useState("");
   
   useEffect(() => {
     getAllPosts()
   }, [])
 
   const getAllPosts = async () => {
-    const response = await api.get('/posts')
-    setUsername(response.data)
+    const response = await api.get('/users')
+    setUsuarios(response.data)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newUser = {username, password}
+    try {
+        console.log("Teste: ", email, senha);
+        const response = await api.get("/users", {
+            params: { email: email, senha: senha }
+        });
+        console.log("Response: ", response);
 
-    const response = await api.post("/posts", newUser)
-  }
+        if (response.status === 200) {
+            if (response.data.length === 1) {
+                const user = response.data[0];
+                if (user.email === email && user.senha === senha) {
+                    setSucessMessage("Usuário logado com sucesso!");
+                } else {
+                    setSucessMessage("Nome de usuário ou a senha incorretos!");
+                }
+            } else {
+                setSucessMessage("Nome de usuário ou a senha incorretos!");
+            }
+        } else {
+            setSucessMessage("Erro ao logar usuário.");
+        }
+    } catch (error) {
+        console.error("Erro ao fazer login: ", error);
+        setSucessMessage("Erro ao logar usuário.");
+    }
+}
+
   return (
     <>
+    {/* {showForm && ( */}
       <fieldset className="box-form">
         <form onSubmit={handleSubmit}>
           <div className="box-form-top">
@@ -35,11 +62,11 @@ export function Login() {
           <div className="box-form-input">
             <div className="box-form-input-one">
               <label className="box-form-label-email" htmlFor="">Seu e-mail</label>
-              <input className="box-form-input-email" onChange={(e) => setUsername(e.target.value)} required placeholder="exemplo@email.com" type="text" /> 
+              <input className="box-form-input-email" onChange={(e) => setEmail(e.target.value)} required placeholder="exemplo@email.com" type="email" /> 
             </div>
             <div className="box-form-input-two">
               <label className="box-form-label-senha" htmlFor="">Sua senha</label>
-              <input className="box-form-input-senha" onChange={(e) => setPassword(e.target.value)} required placeholder="1234" type="text" />
+              <input className="box-form-input-senha" onChange={(e) => setSenha(e.target.value)} required placeholder="1234" type="text" />
             </div>
           </div>
 
@@ -47,17 +74,20 @@ export function Login() {
             <input type="checkbox" />
             <label className="box-form-label-checkbox" htmlFor="manter-logado">Manter-me logado</label>
           </div>
-
+          {sucessMessage && (
+              <div className="sucess-message">{sucessMessage}</div>
+            )}
           <input type="submit" className="box-form-button" value="Logar" />
         </div>
         <div className="box-form-cad">
           <p className="box-form-cad-text">Ainda não tem conta?</p>
-          <a className="box-form-cad-link" href="#">
+          <Link className="box-form-cad-link" to="/cadastro">
             <p>Cadastre-se</p>
-          </a>
+          </Link>
         </div>
         </form>
       </fieldset>
+    {/* )} */}
     </>
   );
 }

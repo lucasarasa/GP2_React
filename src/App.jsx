@@ -2,10 +2,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom/cjs/react-router-
 import { Login } from './pages/Login/Login';
 import { Home } from './pages/HomePage/Home';
 import { Navbar } from './components/Navbar';
-import { ProdutosMasculinos, ProdutosFemininos, ProdutosInfantis, Calcados, Cadastro } from './pages';
+import { Cadastro } from './pages/Cadastro/Cadastro';
+import { ProdutosMasculinos, ProdutosFemininos, ProdutosInfantis, Calcados } from './pages';
 
 function App() {
   return (
+
     <BrowserRouter>
       <Navbar />
       <Switch>
