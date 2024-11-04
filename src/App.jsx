@@ -1,4 +1,3 @@
-// App.jsx
 import { BrowserRouter, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import { Login } from './pages/Login/Login';
 import { Home } from './pages/HomePage/Home';

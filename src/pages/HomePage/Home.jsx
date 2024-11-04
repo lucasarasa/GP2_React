@@ -3,7 +3,7 @@ import './Home.css';
 export function Home() {
   return (
     <div className="home">
-      <h1>Bem-vindo à nossa Loja</h1>
+      <img src="./src/assets/outdor.png" alt="" />
       <div className="options">
         <div className="option">Roupas Masculinas</div>
         <div className="option">Roupas Femininas</div>

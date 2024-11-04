@@ -1,7 +1,13 @@
 .home {
     text-align: center;
     color: #fff;
-    margin-top: 5rem;
+}
+
+.outdoor {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
 }
 
 .options {
@@ -12,7 +18,7 @@
 
 .option {
     background-color: #9b59b6;
-    padding: 1rem;
+    padding: 1rem 2rem;
     border-radius: 8px;
     color: #fff;
     cursor: pointer;
