@@ -19,11 +19,12 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
+        <Route path='/cadastro' component={Cadastro}/>
         <PrivateRoute path='/masculino' component={() => <div>Roupas Masculinas</div>} />
         <PrivateRoute path='/feminino' component={() => <div>Roupas Femininas</div>} />
         <PrivateRoute path='/infantil' component={() => <div>Roupas Infantis</div>} />
         <PrivateRoute path='/calcados' component={() => <div>Calçados</div>} />
-        <Route path='/cadastro' component={() => <div>Página de Cadastro</div>} />
+        {/* <Route path='/cadastro' component={() => <div>Página de Cadastro</div>} /> */}
       </Switch>
     </BrowserRouter>
   );
