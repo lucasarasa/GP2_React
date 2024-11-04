@@ -11,7 +11,6 @@ import { PrivateRoute } from './component/PrivateRoute';
 import { LoginComponent } from './components/componentLogin/LoginComponent'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
 
