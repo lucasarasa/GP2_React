@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./LoginComponent.css";
 import { api } from "../../api/api";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-
+//teste
 export function LoginComponent() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
