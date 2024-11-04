@@ -4,7 +4,7 @@ import { Home } from './pages/HomePage/Home';
 import { Cadastro } from './pages/Cadastro/Cadastro'
 import { Navbar } from './component/Navbar';
 import { PrivateRoute } from './component/PrivateRoute';
-import { LoginComponent } from './components/componentLogin/LoginComponent'
+import { LoginComponent } from './component/componentLogin/LoginComponent'
 import { ProdutosMasculinos, ProdutosFemininos, ProdutosInfantis, Calcados } from './pages';
 
 function App() {
