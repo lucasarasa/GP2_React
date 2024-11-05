@@ -83,7 +83,7 @@ export function LoginComponent() {
             </div>
 
             <div className="box-form-checkbox">
-              <input type="checkbox" />
+              <input className="box-form-input-checkbox" type="checkbox" />
               <label
                 className="box-form-label-checkbox"
                 htmlFor="manter-logado"
