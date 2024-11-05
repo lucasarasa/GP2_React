@@ -1,29 +1,22 @@
+import React, { useState } from 'react';
+import './RoupasInfantis.css';
 
-
-import { useState } from 'react';
-
-import { api } from '../../api/api';
-import './RoupasMasculinas.css';
-import { useEffect } from 'react';
-
-const RoupasMasculinas = () => {
+const RoupasInfantis = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [zoomed, setZoomed] = useState(false);
-    const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await api.get('/produtos');
-                setProducts(response.data);
-            } catch (error) {
-                console.error("Erro ao buscar produtos:", error);
-            }
-        };
-
-        fetchProducts();
-    }, []);
+    const products = [
+        { id: 11, name: "Jardineira Infantil em Moletom com Estampa de Carros - Tam RN a 18 meses Azul", price: "R$ 79,90", image: '/src/Roupas-Categorias/Infantil/1.webp' },
+        { id: 12, name: "Body Infantil em Algodão com Estampa Bichinhos no Safári - Tam 0 a 18 meses Bege", price: "R$ 39,90", image: '/src/Roupas-Categorias/Infantil/2.webp' },
+        { id: 13, name: "Jardineira Infantil em Moletom Estampa Bichinhos - Tam 0 a 18 meses Multicores", price: "79,90", image: '/src/Roupas-Categorias/Infantil/3.webp' },
+        { id: 14, name: "Camiseta Infantil com Estampa do Sonic e Máscara Interativa - Tam 4 a 12 Anos Azul", price: "R$ 69,90", image: '/src/Roupas-Categorias/Infantil/4.webp' },
+        { id: 15, name: "Bermuda Infantil em Sarja com Amarração - Tam 1 a 5 anos Preto", price: "R$ 69,90", image: '/src/Roupas-Categorias/Infantil/5.webp' },
+        { id: 16, name: "Camiseta Comfort Infantil com Estampa de Capivaras - Tam 1 a 5 anos Verde", price: "R$ 39,90", image: '/src/Roupas-Categorias/Infantil/6.webp' },
+        { id: 17, name: "Camiseta Infantil com Estampa de Folhagens e Animais - Tam 1 a 5 anos Branco", price: "R$ 39,90", image: '/src/Roupas-Categorias/Infantil/7.webp' },
+        { id: 18, name: "Camiseta Infantil Blocada em Algodão com Lettering Bordado - Tam 1 a 5 anos Verde/Bege", price: "R$ 49,90", image: '/src/Roupas-Categorias/Infantil/8.webp' },
+        { id: 19, name: "Bermuda Infantil em Sarja com Amarração - Tam 1 a 5 anos Bege", price: "R$ 79,90", image: '/src/Roupas-Categorias/Infantil/9.webp' },
+        { id: 20, name: "Regata Infantil Canelada com Bordado Stitch no Peito - Tam 5 a 14 Anos Branco", price: "R$ 49,90", image: '/src/Roupas-Categorias/Infantil/10.webp' },
+    ];
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
@@ -42,18 +35,9 @@ const RoupasMasculinas = () => {
         alert('Você está inscrito na newsletter!');
     };
 
-    const addToCart = (product) => {
-        setCart([...cart, product]);
-        closePopup();
-    };
-
-    useEffect(()=> {
-    console.log(cart);
-    }, [cart]);
-
     return (
         <section className="mens-clothing">
-            <h1 className="page-title">Roupas Masculinas</h1>
+            <h1 className="page-title">Roupas Infantis</h1>
             <div className="product-container">
                 <div className="top-section">
                     <h2 className="section-title">Título da Seção</h2>
@@ -62,10 +46,10 @@ const RoupasMasculinas = () => {
                 <div className="product-list">
                     {products.map(product => (
                         <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
-                            <img src={product.imgurl} alt={product.nome} className="product-image" />
+                            <img src={product.image} alt={product.name} className="product-image" />
                             <div className="product-info">
-                                <h3 className="product-name">{product.nome}</h3>
-                                <p className="product-price">R$ {product.preco}</p>
+                                <h3 className="product-name">{product.name}</h3>
+                                <p className="product-price">{product.price}</p>
                             </div>
                         </div>
                     ))}
@@ -76,27 +60,28 @@ const RoupasMasculinas = () => {
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                         <img 
-                            src={selectedProduct.imgurl} 
-                            alt={selectedProduct.nome} 
+                            src={selectedProduct.image} 
+                            alt={selectedProduct.name} 
                             className={`popup-image ${zoomed ? 'zoomed' : ''}`} 
                             onClick={toggleZoom}
                         />
                         <div className="popup-details">
-                            <h2>{selectedProduct.nome}</h2>
-                            <p>R$ {selectedProduct.preco}</p>
+                            <h2>{selectedProduct.name}</h2>
+                            <p>{selectedProduct.price}</p>
 
                             <div className="size-selection">
                                 <h3>Selecione o tamanho:</h3>
                                 <div className="size-buttons">
-                                    <button className="size-button">P</button>
-                                    <button className="size-button">M</button>
-                                    <button className="size-button">G</button>
-                                    <button className="size-button">GG</button>
+                                    <button className="size-button">1</button>
+                                    <button className="size-button">2</button>
+                                    <button className="size-button">3</button>
+                                    <button className="size-button">4</button>
+                                    <button className="size-button">5</button>
                                 </div>
                             </div>
 
                             <button onClick={closePopup}>Fechar</button>
-                            <button onClick={() => addToCart(selectedProduct)} className="buy-button">Comprar</button>
+                            <button className="buy-button">Comprar</button>
                         </div>
                     </div>
                 </div>
@@ -125,4 +110,4 @@ const RoupasMasculinas = () => {
     );
 };
 
-export { RoupasMasculinas };
+export { RoupasInfantis };

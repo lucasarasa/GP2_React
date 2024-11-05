@@ -1,5 +1,5 @@
 import "./Login.css";
-import { LoginComponent } from "../../component/componentLogin/LoginComponent";
+import { LoginComponent } from "../../components/componentLogin/LoginComponent";
 
 export function Login() {
   return (

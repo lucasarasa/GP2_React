@@ -1,0 +1,14 @@
+.box-carrinho {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    width: 24rem;
+    height: 80vh;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.box-carrinho p {
+    color: white;
+    margin-top: 10rem;
+}
