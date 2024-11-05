@@ -7,21 +7,24 @@ import { RoupasMasculinas } from "./pages/RoupasMasculinas/RoupasMasculinas";
 import { RoupasFemininas } from "./pages/RoupasFemininas/RoupasFemininas";
 import { Carrinho } from "./components/carrinho/Carrinho";
 import { RoupasInfantis } from "./pages/RoupasInfantis/RoupasInfantis";
+import { CartProvider } from "./contexts/CartContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Switch>
-        <Route path="/masculino" component={RoupasMasculinas} />
-        <Route path="/feminino" component={RoupasFemininas} />
-        <Route path="/infantil" component={RoupasInfantis} />
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/cadastro" component={Cadastro} />
-        <Route path="/carrinho" component={Carrinho} />
-      </Switch>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route path="/masculino" component={RoupasMasculinas} />
+          <Route path="/feminino" component={RoupasFemininas} />
+          <Route path="/infantil" component={RoupasInfantis} />
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/cadastro" component={Cadastro} />
+          <Route path="/carrinho" component={Carrinho} />
+        </Switch>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
