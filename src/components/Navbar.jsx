@@ -38,7 +38,7 @@ export function Navbar() {
                 <li><Link to="/infantil">Roupas Infantis</Link></li>
                 <li><Link to="/calcados">Calçados</Link></li>
                 
-                {location.pathname !== '/login' && (
+                {(location.pathname !== '/login' && location.pathname !== '/cadastro') && (
                     <li>
                         <Link to="#" onClick={toggleCarrinho}>
                             {isCarrinhoVisible ? 'Fechar Carrinho' : 'Abrir Carrinho'}
