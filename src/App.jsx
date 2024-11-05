@@ -6,6 +6,7 @@ import { Cadastro } from "./pages/Cadastro/Cadastro";
 import { RoupasMasculinas } from "./pages/RoupasMasculinas/RoupasMasculinas";
 import { RoupasFemininas } from "./pages/RoupasFemininas/RoupasFemininas";
 import { Carrinho } from "./components/carrinho/Carrinho";
+import { RoupasInfantis } from "./pages/RoupasInfantis/RoupasInfantis";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Switch>
         <Route path="/masculino" component={RoupasMasculinas} />
         <Route path="/feminino" component={RoupasFemininas} />
+        <Route path="/infantil" component={RoupasInfantis} />
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/cadastro" component={Cadastro} />
