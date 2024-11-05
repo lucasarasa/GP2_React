@@ -3,6 +3,9 @@ import { Login } from './pages/Login/Login';
 import { Home } from './pages/HomePage/Home';
 import { Navbar } from './component/Navbar';
 import { PrivateRoute } from './component/PrivateRoute';
+import { RoupasMasculinas } from './pages/RoupasMasculinas/RoupasMasculinas';
+
+
 
 function App() {
   return (
@@ -11,7 +14,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
-        <PrivateRoute path='/masculino' component={() => <div>Roupas Masculinas</div>} />
+        <Route path='/masculino' component={RoupasMasculinas} />
         <PrivateRoute path='/feminino' component={() => <div>Roupas Femininas</div>} />
         <PrivateRoute path='/infantil' component={() => <div>Roupas Infantis</div>} />
         <PrivateRoute path='/calcados' component={() => <div>Calçados</div>} />
