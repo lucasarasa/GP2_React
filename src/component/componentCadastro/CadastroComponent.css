@@ -5,7 +5,7 @@
 }
 
 :root {
-    --color-background: radial-gradient(circle, rgba(119, 0, 255, 0.479), #000000);
+    /* --color-background: radial-gradient(circle, rgba(119, 0, 255, 0.479), #000000); */
     /* --color-background: rgb(223, 19, 19); */
     --primary-color: rgba(89, 0, 255, 0.568);
     --secunday-color: rgba(26, 10, 99, 0.685);
