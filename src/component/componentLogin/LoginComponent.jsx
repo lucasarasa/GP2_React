@@ -4,10 +4,10 @@ import { api } from "../../api/api";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 //teste
 export function LoginComponent() {
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [sucessMessage, setSucessMessage] = useState("");
-  
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [sucessMessage, setSucessMessage] = useState("");
+
   useEffect(() => {
     getAllPosts()
   }, [])
@@ -20,31 +20,31 @@ export function LoginComponent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        console.log("Teste: ", email, senha);
-        const response = await api.get("/users", {
-            params: { email: email, senha: senha }
-        });
-        console.log("Response: ", response);
+      console.log("Teste: ", email, senha);
+      const response = await api.get("/users", {
+        params: { email: email, senha: senha }
+      });
+      console.log("Response: ", response);
 
-        if (response.status === 200) {
-            if (response.data.length === 1) {
-                const user = response.data[0];
-                if (user.email === email && user.senha === senha) {
-                    setSucessMessage("Usuário logado com sucesso!");
-                } else {
-                    setSucessMessage("Nome de usuário ou a senha incorretos!");
-                }
-            } else {
-                setSucessMessage("Nome de usuário ou a senha incorretos!");
-            }
+      if (response.status === 200) {
+        if (response.data.length === 1) {
+          const user = response.data[0];
+          if (user.email === email && user.senha === senha) {
+            setSucessMessage("Usuário logado com sucesso!");
+          } else {
+            setSucessMessage("Nome de usuário ou a senha incorretos!");
+          }
         } else {
-            setSucessMessage("Erro ao logar usuário.");
+          setSucessMessage("Nome de usuário ou a senha incorretos!");
         }
-    } catch (error) {
-        console.error("Erro ao fazer login: ", error);
+      } else {
         setSucessMessage("Erro ao logar usuário.");
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login: ", error);
+      setSucessMessage("Erro ao logar usuário.");
     }
-}
+  }
   return (
     <>
       <fieldset className="box-form">
