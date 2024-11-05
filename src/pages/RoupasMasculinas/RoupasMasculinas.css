@@ -3,7 +3,7 @@
     margin-bottom: 500px;
     text-align: center;
     padding: 0px;
-
+    
     background-color: #8e44ad;
 }
 
@@ -56,17 +56,14 @@
     font-family: "Poppins", serif;
     font-weight: 300;
     font-style: bold;
-  }
+}
 
 .product-price {
     font-size: 1rem;
-    color:#8e44ad;
+    color:#672385;
     font-weight: bold;
     margin: 5px 0;
 }
-
-
-
 
 .product-card {
     margin: 30px;
@@ -86,21 +83,6 @@
     width: 100%;
     height: auto;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -135,6 +117,7 @@
 }
 
 .popup-details {
+    position: relative;
     flex: 2;
 }
 
@@ -185,15 +168,33 @@
     font-size: 16px;
     margin-top: 280px;
     transition: background-color 0.3s;
+    border-radius: 15px;
 }
 
 .buy-button:hover {
     background-color: #8e44ad;
 }
 
+/* botao de excluir, salvar pra eu colocar em todas as categorias */
+.popup-details input {
+    cursor: pointer;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 0 10px rgb(233, 195, 233);
+} 
 
-
-
+.botao-excluir {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: -80px;
+    right: -40px;
+}
 
 
 
