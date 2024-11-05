@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Carrinho } from "./carrinho/Carrinho";
 
 export function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isCarrinhoVisible, setIsCarrinhoVisible] = useState(false);
+
+    const location = useLocation();
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -15,6 +17,12 @@ export function Navbar() {
         e.preventDefault();
         setIsCarrinhoVisible(!isCarrinhoVisible);
     };
+
+    useEffect(() => {
+        if (location.pathname === '/login') {
+            setIsCarrinhoVisible(false);
+        }
+    }, [location]);
 
     return (
         <nav className="navbar">
@@ -29,13 +37,18 @@ export function Navbar() {
                 <li><Link to="/feminino">Roupas Femininas</Link></li>
                 <li><Link to="/infantil">Roupas Infantis</Link></li>
                 <li><Link to="/calcados">Calçados</Link></li>
-                <li>
-                    <Link to="#" onClick={toggleCarrinho}>
-                        {isCarrinhoVisible ? 'Fechar Carrinho' : 'Abrir Carrinho'}
-                    </Link>
-                </li>
+                
+                {location.pathname !== '/login' && (
+                    <li>
+                        <Link to="#" onClick={toggleCarrinho}>
+                            {isCarrinhoVisible ? 'Fechar Carrinho' : 'Abrir Carrinho'}
+                        </Link>
+                    </li>
+                )}
+
                 <li><Link to="/login">Login</Link></li>
             </ul>
+
             {isCarrinhoVisible && <Carrinho />}
         </nav>
     );
