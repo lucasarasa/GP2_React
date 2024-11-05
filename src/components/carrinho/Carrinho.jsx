@@ -6,6 +6,8 @@ import { api } from '../../api/api';
 export function Carrinho() {
     const { cart, removeFromCart, updateQuantity, emptyCart } = useContext(CartContext);
     const [produtos, setProdutos] = useState([]);
+    const totalCarrinho = produtos.reduce((total, item) => total + item.preco * item.quantity, 0);
+    const totalFormatado = totalCarrinho.toFixed(2);
 
     useEffect(() => {
         setProdutos(cart);
@@ -85,14 +87,13 @@ export function Carrinho() {
                             <p>{item.nome}</p>
                         </div>
                         <div className='box-carrinho-produtos-bot'>
-                            <p>R$ {item.preco.toFixed(2)}</p>
-                            <input className='input-comprar' type="submit" value="comprar" />
                             <input
                                 onClick={() => handleExcluirClick(item.id)}
                                 className='input-excluir'
                                 type="submit"
-                                value="excluir"
+                                value="X"
                             />
+                            <p>R$ {(item.preco * item.quantity).toFixed(2)}</p>
                             <div className='box-carrinho-quantidade'>
                                 <p>Quantidade: {item.quantity}</p>
                                 <div className='box-carrinho-aum-dim'>
@@ -109,6 +110,7 @@ export function Carrinho() {
             {produtos.length > 0 && (
                 <div className="carrinho-actions">
                     <button onClick={emptyCart} className="empty-cart-button">Esvaziar Carrinho</button>
+                    <p className='box-valor-total'>Valor total: R${totalFormatado}</p>
                     <button onClick={handleFinalizarCompra} className="finalizar-compra-button">Finalizar Compra</button>
                 </div>
             )}
