@@ -6,6 +6,7 @@ const RoupasMasculinas = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [zoomed, setZoomed] = useState(false);
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -36,6 +37,15 @@ const RoupasMasculinas = () => {
         e.preventDefault();
         alert('Você está inscrito na newsletter!');
     };
+
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+        closePopup();
+    };
+
+    useEffect(()=> {
+    console.log(cart);
+    }, [cart]);
 
     return (
         <section className="mens-clothing">
@@ -82,7 +92,7 @@ const RoupasMasculinas = () => {
                             </div>
 
                             <button onClick={closePopup}>Fechar</button>
-                            <button className="buy-button">Comprar</button>
+                            <button onClick={() => addToCart(selectedProduct)} className="buy-button">Comprar</button>
                         </div>
                     </div>
                 </div>
