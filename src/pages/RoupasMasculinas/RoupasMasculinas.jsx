@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import api from '../../api/api';
+
+import { useState } from 'react';
+import { api } from '../../api/api';
 import './RoupasMasculinas.css';
+import { useEffect } from 'react';
 
 const RoupasMasculinas = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
