@@ -10,6 +10,7 @@ import { RoupasInfantis } from "./pages/RoupasInfantis/RoupasInfantis";
 import RoupasCalcados from './pages/RoupasCalcados/RoupasCalcados';
 
 import { CartProvider } from "./contexts/CartContext";
+import { Pedidos } from "./components/pedido/pedidos";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/cadastro" component={Cadastro} />
           <Route path="/carrinho" component={Carrinho} />
+          <Route path="/pedido" component={Pedidos} />
         </Switch>
       </BrowserRouter>
     </CartProvider>

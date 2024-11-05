@@ -39,7 +39,7 @@ export function CadastroComponent() {
         <fieldset className="box-form">
         <form onSubmit={handleSubmit}>
           <div className="box-form-top">
-            <h1 className="box-form-login">Login</h1>
+            <h1 className="box-form-login">Cadastre-se</h1>
             <div className="box-form-border"></div>
           </div>
 
