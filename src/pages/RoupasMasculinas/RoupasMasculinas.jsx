@@ -85,7 +85,7 @@ const RoupasMasculinas = () => {
                             </div>
 
                             <button onClick={closePopup}>Fechar</button>
-                            <button onClick={() => addToCart(selectedProduct)} className="buy-button">Comprar</button>
+                            <button onClick={() => {addToCart(selectedProduct), closePopup()}} className="buy-button">Comprar</button>
                         </div>
                     </div>
                 </div>
