@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { api } from '../../api/api';
-import './RoupasMasculinas.css';
+import './RoupasMasculinas.css'
 import { useEffect } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 
@@ -13,17 +13,15 @@ const RoupasMasculinas = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-            const response = await api.get("/produtos");
-            const filteredProducts = response.data.filter(
-                (product) => product.categoria === "masculino"
-            );
-            setProducts(filteredProducts);
+                const response = await api.get('/produtos');
+                setProducts(response.data);
             } catch (error) {
-            console.error("Erro ao buscar produtos:", error);
+                console.error("Erro ao buscar produtos:", error);
             }
         };
+
         fetchProducts();
-        }, []);
+    }, []);
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
@@ -85,8 +83,12 @@ const RoupasMasculinas = () => {
                                     <button className="size-button">GG</button>
                                 </div>
                             </div>
-
-                            <button onClick={closePopup}>Fechar</button>
+                            <input
+                                onClick={closePopup}
+                                className='botao-excluir'
+                                type="submit"
+                                value="X"
+                            />
                             <button onClick={() => {addToCart(selectedProduct), closePopup()}} className="buy-button">Comprar</button>
                         </div>
                     </div>

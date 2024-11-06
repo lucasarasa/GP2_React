@@ -33,7 +33,6 @@ export function LoginComponent() {
           const user = response.data[0];
           if (user.email === email && user.senha === senha) {
             setSucessMessage("Usuário logado com sucesso!");
-            localStorage.setItem("user", JSON.stringify(user));
             setTimeout(() => {
               history.push("/");
             }, 1500);
