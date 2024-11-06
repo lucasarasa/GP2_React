@@ -7,7 +7,7 @@ import { RoupasMasculinas } from "./pages/RoupasMasculinas/RoupasMasculinas";
 import { RoupasFemininas } from "./pages/RoupasFemininas/RoupasFemininas";
 import { Carrinho } from "./components/carrinho/Carrinho";
 import { RoupasInfantis } from "./pages/RoupasInfantis/RoupasInfantis";
-import RoupasCalcados from './pages/RoupasCalcados/RoupasCalcados';
+import { RoupasCalcados } from './pages/RoupasCalcados/RoupasCalcados';
 
 import { CartProvider } from "./contexts/CartContext";
 import { Pedidos } from "./pages/Pedidos/Pedidos";

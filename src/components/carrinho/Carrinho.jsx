@@ -10,7 +10,6 @@ export function Carrinho() {
     const totalCarrinho = produtos.reduce((total, item) => total + item.preco * item.quantity, 0);
     const totalFormatado = totalCarrinho.toFixed(2);
     const history = useHistory();
-//
     useEffect(() => {
         setProdutos(cart);
         console.log("Produtos no carrinho:", cart);

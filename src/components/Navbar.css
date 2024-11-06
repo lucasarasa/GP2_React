@@ -23,6 +23,8 @@
 
 .navbar-menu {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
     list-style: none;
 }
@@ -51,6 +53,29 @@
 .navbar-menu li a:hover {
     color: #8e44ad;
     transform: scale(1.1);
+}
+
+.user-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.user-profile img {
+    width: 50px;
+}
+
+
+.user-profile button {
+    color: #9b59b6;
+    background: none;
+    border: none;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 /* Menu hambúrguer para telas pequenas */
