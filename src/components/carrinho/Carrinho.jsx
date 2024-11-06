@@ -2,12 +2,14 @@ import './Carrinho.css';
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 import { api } from '../../api/api';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export function Carrinho() {
     const { cart, removeFromCart, updateQuantity, emptyCart } = useContext(CartContext);
     const [produtos, setProdutos] = useState([]);
     const totalCarrinho = produtos.reduce((total, item) => total + item.preco * item.quantity, 0);
     const totalFormatado = totalCarrinho.toFixed(2);
+    const history = useHistory();
 
     useEffect(() => {
         setProdutos(cart);
@@ -70,7 +72,7 @@ export function Carrinho() {
             if(response.status === 201) {
                 alert("Compra finalizada com sucesso!");
                 emptyCart();
-                navigate('/pedidos');
+                history.push('/pedido');
             }
         } catch (error) {
             console.error("Erro ao finalizar compra:", error);
