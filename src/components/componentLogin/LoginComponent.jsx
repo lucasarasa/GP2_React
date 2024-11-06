@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import "./LoginComponent.css";
 import { api } from "../../api/api";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 //teste
 export function LoginComponent() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [sucessMessage, setSucessMessage] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     getAllPosts()
@@ -31,6 +33,10 @@ export function LoginComponent() {
           const user = response.data[0];
           if (user.email === email && user.senha === senha) {
             setSucessMessage("Usuário logado com sucesso!");
+            setTimeout(() => {
+              history.push("/");
+            }, 1500);
+
           } else {
             setSucessMessage("Nome de usuário ou a senha incorretos!");
           }
