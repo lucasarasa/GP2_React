@@ -1,32 +1,52 @@
 import { useState, useEffect } from "react";
 import "./CadastroComponent.css";
 import { api } from "../../api/api";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export function CadastroComponent() {
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
     const [email, setEmail] = useState("");
     const [sucessMessage, setSucessMessage] = useState("");
+    const history = useHistory();
+    const [existingEmails, setExistingEmails] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
-        getAllPosts()
-      }, [])
+      const getAllEmails = async () => {
+          try {
+              const response = await api.get("/users");
+              const emails = response.data.map(user => user.email);
+              setExistingEmails(emails);
+          } catch (error) {
+              console.error("Erro ao obter os usuários:", error);
+          }
+      };
 
-    const getAllPosts = async () => {
-        const response = await api.get('/users')
-        setUsername(response.data)
-      }
+      getAllEmails();
+  }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(existingEmails.includes(email)){
+          setErrorMessage("Este e-mail já está cadastrado!");
+          return;
+        }
+
         const newUser = {username, email, senha}
     
         try {
+          
             const response = await api.post("/users", newUser)
             setSucessMessage("Usuário cadastrado com sucesso!");
+            setTimeout(() => {
+              history.push("/login");
+            }, 1000);
             setUsername("");
             setSenha("");
+            setEmail("");
+            setErrorMessage("");
         } catch (error) {
             console.error("Erro ao cadastrar usuário: ", error);
             setSucessMessage("Erro ao cadastrar usuário.");
@@ -58,6 +78,7 @@ export function CadastroComponent() {
               <input className="box-form-input-senha" onChange={(e) => setSenha(e.target.value)} required placeholder="1234" type="text" />
             </div>
           </div>
+            {errorMessage}
             {sucessMessage}
           <input type="submit" className="box-form-button" value="Cadastrar-se" />
         </div>
