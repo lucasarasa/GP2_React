@@ -6,8 +6,15 @@ import { Carrinho } from "./carrinho/Carrinho";
 export function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isCarrinhoVisible, setIsCarrinhoVisible] = useState(false);
-
     const location = useLocation();
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const loggedUser = JSON.parse(localStorage.getItem("user"));
+        if(loggedUser) {
+            setUser(loggedUser);
+        }
+    }, []);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -23,6 +30,12 @@ export function Navbar() {
             setIsCarrinhoVisible(false);
         }
     }, [location]);
+
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        setUser(null);
+        window.location.href = "/login";
+    }
 
     return (
         <nav className="navbar">
@@ -46,7 +59,16 @@ export function Navbar() {
                     </li>
                 )}
 
-                <li><Link to="/login">Login</Link></li>
+                {user ? (
+                    <li>
+                        <div className="user-profile">
+                        <img src={user.imgurl || "path_to_default_profile_picture.jpg"} alt="Foto do usuário" className="profile-img" />
+                        <button onClick={handleLogout}>Logout</button>
+                        </div>
+                    </li>
+                ) : (
+                     <li><Link to="/login">Login</Link></li>
+                )}
             </ul>
 
             {isCarrinhoVisible && <Carrinho />}
