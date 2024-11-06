@@ -11,25 +11,31 @@ export function PedidosComponent() {
         const loggedUser = JSON.parse(localStorage.getItem("user"));
         if (loggedUser) {
             setUser(loggedUser);
+            console.log(user);
         }
     }, []);
 
     useEffect(() => {
-        const fetchPedidos = async () => {
-            try {
-                const response = await api.get('/pedidos');
-                setPedidos(response.data);
-            } catch (error) {
-                console.error("Erro ao buscar pedidos:", error);
-            }
-        };
-        fetchPedidos();
-    }, []);
+        if (user) {
+            const fetchPedidos = async () => {
+                try {
+                    const response = await api.get('/pedidos');
+                    const filteredPedidos = response.data.filter(
+                        (pedidos) => pedidos.idUser === user.id
+                    );
+                    setPedidos(filteredPedidos);
+                } catch (error) {
+                    console.error("Erro ao buscar pedidos:", error);
+                }
+            };
+            fetchPedidos();
+        }
+    }, [user]);
 
     return (
         <div className='box-pedidos'>
             <div className='box-pedidos-title'>
-            <h1>Pedidos Realizados</h1>
+                <h1>Pedidos Realizados</h1>
             </div>
             {pedidos.length > 0 ? (
                 pedidos.map((pedido) => (
