@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 import { api } from '../../api/api';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from "react-router-dom";
 
 export function Carrinho() {
     const { cart, removeFromCart, updateQuantity, emptyCart } = useContext(CartContext);
@@ -10,6 +11,17 @@ export function Carrinho() {
     const totalCarrinho = produtos.reduce((total, item) => total + item.preco * item.quantity, 0);
     const totalFormatado = totalCarrinho.toFixed(2);
     const history = useHistory();
+    const [user, setUser] = useState(null);
+
+
+    useEffect(() => {
+        const loggedUser = JSON.parse(localStorage.getItem("user"));
+        if (loggedUser) {
+            setUser(loggedUser);
+        }
+    }, []);
+
+
     useEffect(() => {
         setProdutos(cart);
         console.log("Produtos no carrinho:", cart);
@@ -68,7 +80,7 @@ export function Carrinho() {
             };
 
             const response = await api.post('/pedidos', pedido);
-            if(response.status === 201) {
+            if (response.status === 201) {
                 alert("Compra finalizada com sucesso!");
                 emptyCart();
                 history.push('/pedido');
@@ -114,7 +126,15 @@ export function Carrinho() {
                 <div className="carrinho-actions">
                     <button onClick={emptyCart} className="empty-cart-button">Esvaziar Carrinho</button>
                     <p className='box-valor-total'>Valor total: R${totalFormatado}</p>
-                    <button onClick={handleFinalizarCompra} className="finalizar-compra-button">Finalizar Compra</button>
+                    {user ? (
+                        <li>
+                            <div className="user-profile">
+                                <button onClick={handleFinalizarCompra} className="finalizar-compra-button">Finalizar Compra</button>
+                            </div>
+                        </li>
+                    ) : (
+                        <li><Link to="/login">Login</Link></li>
+                    )}
                 </div>
             )}
         </div>
