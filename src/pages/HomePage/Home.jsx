@@ -4,7 +4,10 @@ import './Home.css';
 export function Home() {
   return (
     <div className="home">
-      <img className="outdor" src="./src/assets/outdor.png" alt="Outdor da Loja" />
+      <Link to="/novacolecao">
+        <img className="outdor" src="./src/assets/outdor.png" alt="Outdor da Loja" />
+      </Link>
+
       <div className="options">
         <div className="option"><Link to="/masculino">Roupas Masculinas</Link></div>
         <div className="option"><Link to="/feminino">Roupas Femininas</Link></div>

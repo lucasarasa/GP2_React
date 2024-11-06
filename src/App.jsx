@@ -8,6 +8,7 @@ import { RoupasFemininas } from "./pages/RoupasFemininas/RoupasFemininas";
 import { Carrinho } from "./components/carrinho/Carrinho";
 import { RoupasInfantis } from "./pages/RoupasInfantis/RoupasInfantis";
 import { RoupasCalcados } from './pages/RoupasCalcados/RoupasCalcados';
+import { NovaColecao } from './pages/NovaColecao/NovaColecao';
 
 import { CartProvider } from "./contexts/CartContext";
 import { Pedidos } from "./components/pedido/pedidos";
@@ -21,7 +22,8 @@ function App() {
           <Route path="/masculino" component={RoupasMasculinas} />
           <Route path="/feminino" component={RoupasFemininas} />
           <Route path="/infantil" component={RoupasInfantis} />
-          <Route path ="/calcados" component={RoupasCalcados} />
+          <Route path="/calcados" component={RoupasCalcados} />
+          <Route path="/novacolecao" component={NovaColecao} />
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/cadastro" component={Cadastro} />

@@ -1,0 +1,93 @@
+.nova-colecao {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .carrossel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .carrossel img {
+    width: 100%;
+    max-width: 3200px;
+    height: 80vh;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    margin-top: 13rem;
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .descricao {
+    background-color: #ffffff;
+    padding: 3rem;
+    margin-top: -2rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .descricao p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #000000;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .whatsapp-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .whatsapp-container h2 {
+    font-size: 1rem;
+    margin-bottom: -2px;
+  }
+  
+  .whatsapp-link {
+    display: inline-block;
+  }
+  
+  .whatsapp-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .whatsapp-link:hover .whatsapp-icon {
+    opacity: 0.8;
+  }
