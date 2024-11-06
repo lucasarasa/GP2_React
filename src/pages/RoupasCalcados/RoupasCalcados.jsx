@@ -44,11 +44,12 @@ const RoupasCalcados = () => {
 
     return (
         <section className="mens-clothing">
-            <h1 className="page-title">Roupas Masculinas</h1>
+            <h1 className="page-title">Roupas Calçados</h1>
             <div className="product-container">
                 <div className="top-section">
-                    <h2 className="section-title">Título da Seção</h2>
-                    <p>NÃO SEI AINDA O QUE INSERIR</p>
+                    <h2 className="section-title"> The Best Calçados – Where Comfort Meets Style.</h2>
+                    <p>"Encontre o par perfeito que combina com seu estilo e conforto. Nossa seleção de calçados traz o que há de mais moderno e versátil,
+                         para acompanhar você em todos os momentos. Escolha o seu próximo passo com a gente!"</p>
                 </div>
                 <div className="product-list">
                     {products.map(product => (
