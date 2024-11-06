@@ -13,15 +13,17 @@ const RoupasMasculinas = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await api.get('/produtos');
-                setProducts(response.data);
+            const response = await api.get("/produtos");
+            const filteredProducts = response.data.filter(
+                (product) => product.categoria === "masculino"
+            );
+            setProducts(filteredProducts);
             } catch (error) {
-                console.error("Erro ao buscar produtos:", error);
+            console.error("Erro ao buscar produtos:", error);
             }
         };
-
         fetchProducts();
-    }, []);
+        }, []);
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
@@ -83,12 +85,8 @@ const RoupasMasculinas = () => {
                                     <button className="size-button">GG</button>
                                 </div>
                             </div>
-                            <input
-                                onClick={closePopup}
-                                className='botao-excluir'
-                                type="submit"
-                                value="X"
-                            />
+
+                            <button onClick={closePopup}>Fechar</button>
                             <button onClick={() => {addToCart(selectedProduct), closePopup()}} className="buy-button">Comprar</button>
                         </div>
                     </div>
