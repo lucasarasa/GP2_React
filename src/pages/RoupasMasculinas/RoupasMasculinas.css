@@ -175,7 +175,7 @@
     background-color: #8e44ad;
 }
 
-
+/* botao de excluir, salvar pra eu colocar em todas as categorias */
 .popup-details input {
     cursor: pointer;
     width: 3.5rem;
@@ -280,61 +280,4 @@ input {
     margin: 5px 0 0;
     font-size: 1rem;
     color: #ffffff;
-}
-
-/* RoupasMasculinas.css */
-
-.comments-section {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-.comments-section form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.comments-section input, .comments-section textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: "Poppins", sans-serif;
-}
-
-.comments-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.post {
-    padding: 15px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.post-footer {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: #ddd;
 }
