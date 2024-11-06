@@ -10,7 +10,7 @@ import { RoupasInfantis } from "./pages/RoupasInfantis/RoupasInfantis";
 import { RoupasCalcados } from './pages/RoupasCalcados/RoupasCalcados';
 
 import { CartProvider } from "./contexts/CartContext";
-import { Pedidos } from "./components/pedido/pedidos";
+import { Pedidos } from "./pages/Pedidos/Pedidos";
 
 function App() {
   return (
