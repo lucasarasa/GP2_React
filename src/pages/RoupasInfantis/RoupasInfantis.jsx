@@ -46,8 +46,9 @@ const RoupasInfantis = () => {
             <h1 className="page-title">Roupas Infantis</h1>
             <div className="product-container">
                 <div className="top-section">
-                    <h2 className="section-title">Título da Seção</h2>
-                    <p>NÃO SEI AINDA O QUE INSERIR</p>
+                <h2 className="section-title">Vestuário Infantil</h2>
+                    <p>Descubra a nossa encantadora coleção de roupas infantis, feita especialmente para os pequenos exploradores!
+                    Aqui, você encontrará peças confortáveis e estilosas para crianças de todas as idades.</p>
                 </div>
                 <div className="product-list">
                     {products.map(product => (
