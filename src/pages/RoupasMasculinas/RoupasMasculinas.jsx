@@ -3,12 +3,18 @@ import { api } from "../../api/api";
 import "./RoupasMasculinas.css";
 import { useEffect } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import CommentsSection from "../../components/CommentsSection";
+import Post from "../../components/Post";
+
 
 const RoupasMasculinas = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [zoomed, setZoomed] = useState(false);
   const [products, setProducts] = useState([]);
   const { addToCart } = useContext(CartContext);
+  const [posts, setPosts] = useState([]);
+  const [autor, setAutor] = useState("");
+  const [comentario, setComentario] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -25,6 +31,14 @@ const RoupasMasculinas = () => {
     fetchProducts();
   }, []);
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+
+    const novoPost = { autor, comentario, likes: 0 }
+    setPosts([...posts, novoPost])
+    setAutor('')
+    setComentario('')
+  }
   const handleProductClick = (product) => {
     setSelectedProduct(product);
   };
@@ -41,7 +55,6 @@ const RoupasMasculinas = () => {
     e.preventDefault();
     alert("Você está inscrito na newsletter!");
   };
-
   return (
     <section className="mens-clothing">
       <h1 className="page-title">Roupas Masculinas</h1>
@@ -84,6 +97,15 @@ const RoupasMasculinas = () => {
               className={`popup-image ${zoomed ? "zoomed" : ""}`}
               onClick={toggleZoom}
             />
+            <CommentsSection
+              posts={posts}
+              setPosts={setPosts}
+              autor={autor}
+              setAutor={setAutor}
+              comentario={comentario}
+              setComentario={setComentario}
+            />
+
             <div className="popup-details">
               <h2>{selectedProduct.nome}</h2>
               <p>R$ {selectedProduct.preco}</p>
