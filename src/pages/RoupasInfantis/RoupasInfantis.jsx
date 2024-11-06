@@ -1,30 +1,28 @@
-
-
-import { useState } from 'react';
-
+import { useState, useContext, useEffect } from 'react';
 import { api } from '../../api/api';
 import './RoupasInfantis.css';
-import { useEffect } from 'react';
+import { CartContext } from '../../contexts/CartContext';
 
 const RoupasInfantis = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [zoomed, setZoomed] = useState(false);
     const [products, setProducts] = useState([]);
+    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         const fetchProducts = async () => {
-          try {
-            const response = await api.get("/produtos");
-            const filteredProducts = response.data.filter(
-              (product) => product.categoria === "infantil"
-            );
-            setProducts(filteredProducts);
-          } catch (error) {
-            console.error("Erro ao buscar produtos:", error);
-          }
+            try {
+                const response = await api.get("/produtos");
+                const filteredProducts = response.data.filter(
+                    (product) => product.categoria === "infantil"
+                );
+                setProducts(filteredProducts);
+            } catch (error) {
+                console.error("Erro ao buscar produtos:", error);
+            }
         };
         fetchProducts();
-      }, []);
+    }, []);
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
@@ -67,17 +65,16 @@ const RoupasInfantis = () => {
             {selectedProduct && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-                        <img 
-                            src={selectedProduct.imgurl} 
-                            alt={selectedProduct.nome} 
-                            className={`popup-image ${zoomed ? 'zoomed' : ''}`} 
+                        <img
+                            src={selectedProduct.imgurl}
+                            alt={selectedProduct.nome}
+                            className={`popup-image ${zoomed ? 'zoomed' : ''}`}
                             onClick={toggleZoom}
                         />
                         <div className="popup-details">
                             <h2>{selectedProduct.nome}</h2>
                             <p>R$ {selectedProduct.preco}</p>
                             <div className="size-selection">
-
                                 <h3>Selecione o tamanho:</h3>
                                 <div className="size-buttons">
                                     <button className="size-button">1</button>
@@ -87,9 +84,8 @@ const RoupasInfantis = () => {
                                     <button className="size-button">5</button>
                                 </div>
                             </div>
-
                             <button onClick={closePopup}>Fechar</button>
-                            <button className="buy-button">Comprar</button>
+                            <button onClick={() => { addToCart(selectedProduct); closePopup(); }} className="buy-button">Comprar</button>
                         </div>
                     </div>
                 </div>

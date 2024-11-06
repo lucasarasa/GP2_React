@@ -12,18 +12,18 @@ const RoupasMasculinas = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-          try {
-            const response = await api.get("/produtos");
-            const filteredProducts = response.data.filter(
-              (product) => product.categoria === "masculino"
-            );
-            setProducts(filteredProducts);
-          } catch (error) {
-            console.error("Erro ao buscar produtos:", error);
-          }
+            try {
+                const response = await api.get("/produtos");
+                const filteredProducts = response.data.filter(
+                    (product) => product.categoria === "masculino"
+                );
+                setProducts(filteredProducts);
+            } catch (error) {
+                console.error("Erro ao buscar produtos:", error);
+            }
         };
         fetchProducts();
-      }, []);
+    }, []);
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
@@ -66,10 +66,10 @@ const RoupasMasculinas = () => {
             {selectedProduct && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-                        <img 
-                            src={selectedProduct.imgurl} 
-                            alt={selectedProduct.nome} 
-                            className={`popup-image ${zoomed ? 'zoomed' : ''}`} 
+                        <img
+                            src={selectedProduct.imgurl}
+                            alt={selectedProduct.nome}
+                            className={`popup-image ${zoomed ? 'zoomed' : ''}`}
                             onClick={toggleZoom}
                         />
                         <div className="popup-details">
@@ -91,7 +91,7 @@ const RoupasMasculinas = () => {
                                 type="submit"
                                 value="X"
                             />
-                            <button onClick={() => {addToCart(selectedProduct), closePopup()}} className="buy-button">Comprar</button>
+                            <button onClick={() => { addToCart(selectedProduct), closePopup() }} className="buy-button">Comprar</button>
                         </div>
                     </div>
                 </div>
