@@ -80,7 +80,7 @@ export function LoginComponent() {
                   onChange={(e) => setSenha(e.target.value)}
                   required
                   placeholder="1234"
-                  type="text"
+                  type="password"
                 />
               </div>
             </div>

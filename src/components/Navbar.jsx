@@ -54,6 +54,12 @@ export function Navbar() {
 
         {(location.pathname !== '/login' && location.pathname !== '/cadastro') && (
           <li>
+            <li><Link to="/pedido">Pedidos</Link></li>
+          </li>
+        )}
+        
+        {(location.pathname !== '/login' && location.pathname !== '/cadastro') && (
+          <li>
             <Link to="#" onClick={toggleCarrinho}>
               {isCarrinhoVisible ? 'Fechar Carrinho' : 'Abrir Carrinho'}
             </Link>

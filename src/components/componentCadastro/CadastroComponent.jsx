@@ -75,7 +75,7 @@ export function CadastroComponent() {
             </div>
             <div className="box-form-input-two">
               <label className="box-form-label-senha" htmlFor="">Sua senha</label>
-              <input className="box-form-input-senha" onChange={(e) => setSenha(e.target.value)} required placeholder="1234" type="text" />
+              <input className="box-form-input-senha" onChange={(e) => setSenha(e.target.value)} required placeholder="1234" type="password" />
             </div>
           </div>
             {errorMessage}
