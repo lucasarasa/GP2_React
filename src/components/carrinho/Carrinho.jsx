@@ -91,6 +91,10 @@ export function Carrinho() {
         }
     };
 
+    const handleAlertLogin = () => {
+        alert("Você precisa estar logado pra conseguir finalizar a compra!");
+    }
+
     return (
         <div className="box-carrinho">
             <p>Itens do carrinho</p>
@@ -128,12 +132,14 @@ export function Carrinho() {
                     <p className='box-valor-total'>Valor total: R${totalFormatado}</p>
                     {user ? (
                         <li>
-                            <div className="user-profile">
+                            <div className="finalizar-button">
                                 <button onClick={handleFinalizarCompra} className="finalizar-compra-button">Finalizar Compra</button>
                             </div>
                         </li>
                     ) : (
-                        <li><Link to="/login">Login</Link></li>
+                        <button onClick={handleAlertLogin}> 
+                            <li className="finalizar-compra-login"><Link className="finalizar-compra-link" to="/login">Comprar</Link></li>
+                        </button>
                     )}
                 </div>
             )}

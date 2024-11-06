@@ -104,6 +104,27 @@
     box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
+.finalizar-button button {
+    cursor: pointer;
+    width: 6rem;
+    height: 3rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(199, 179, 179);
+    margin-bottom: 24px;
+}
+    
+.finalizar-compra-login {
+    list-style-type: none;
+    padding-left: 0;  
+}
+
+.finalizar-compra-link {
+    text-decoration: none; 
+    color: inherit;
+    font-size: 15px;
+}
+
 .box-valor-total {
     display: flex;
     align-items: center;
