@@ -134,6 +134,17 @@ body {
     transition: background-color 0.3s;
 }
 
+.size-buttons input{
+    border: 1px solid red;
+}
+
+.size-buttons-inputs {
+  width: 10px;
+  height: 10px;
+  background: none;
+  background-color: none;
+}
+
 .size-button:hover {
     background-color: #000000;
     color: white;
@@ -228,4 +239,31 @@ input {
     margin: 5px 0 0;
     font-size: 1rem;
     color: #ffffff;
+}
+
+.size-selection {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    width: 10rem;
+}
+
+.size-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buy-button-sapato {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 20px 80px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    border-radius: 15px;
+}
+
+.buy-button-sapato:hover {
+    background-color: #8e44ad;
 }

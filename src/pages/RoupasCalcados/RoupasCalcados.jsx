@@ -79,12 +79,22 @@ const RoupasCalcados = () => {
                             <div className="size-selection">
                                 <h3>Selecione o tamanho:</h3>
                                 <div className="size-buttons">
-                                    <button className="size-button">34 - 35</button>
-                                    <button className="size-button">36 - 37</button>
-                                    <button className="size-button">38 - 39</button>
-                                    <button className="size-button">40 - 41</button>
-                                    <button className="size-button">42 - 43</button>
-
+                                <label htmlFor="s">
+                                34 - 35
+                                <input className='size-buttons-inputs' type="radio" name="size" id="sizeM" value="34 - 35" />
+                                </label>
+                                <label htmlFor="s">
+                                36 - 37
+                                <input className='size-buttons-inputs' type="radio" name="size" id="sizeM" value="36 - 37" />
+                                </label>
+                                <label htmlFor="">
+                                38 - 39
+                                <input className='size-buttons-inputs' type="radio" name="size" id="sizeG" value=" 38 - 39" />
+                                </label>
+                                <label htmlFor="">
+                                40 - 41
+                                <input className='size-buttons-inputs' type="radio" name="size" id="sizeGG" value="40 - 41" />
+                                </label>
                                 </div>
                             </div>
                             <input
@@ -93,7 +103,7 @@ const RoupasCalcados = () => {
                                 type="submit"
                                 value="X"
                             />
-                            <button onClick={() => {addToCart(selectedProduct), closePopup()}} className="buy-button">Comprar</button>
+                            <button onClick={() => {addToCart(selectedProduct), closePopup()}} className="buy-button-sapato">Comprar</button>
                         </div>
                     </div>
                 </div>

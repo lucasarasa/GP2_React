@@ -91,10 +91,22 @@ const RoupasFemininas = () => {
               <div className="size-selection">
                 <h3>Selecione o tamanho:</h3>
                 <div className="size-buttons">
-                  <button className="size-button">P</button>
-                  <button className="size-button">M</button>
-                  <button className="size-button">G</button>
-                  <button className="size-button">GG</button>
+                <label htmlFor="sizeP">
+                  P
+                  <input type="radio" name="size" id="sizeP" value="P" />
+                </label>
+                <label htmlFor="sizeM">
+                  M
+                  <input type="radio" name="size" id="sizeM" value="M" />
+                </label>
+                <label htmlFor="sizeG">
+                  G
+                  <input type="radio" name="size" id="sizeG" value="G" />
+                </label>
+                <label htmlFor="sizeGG">
+                  GG
+                  <input type="radio" name="size" id="sizeGG" value="GG" />
+                </label>
                 </div>
               </div>
               <input

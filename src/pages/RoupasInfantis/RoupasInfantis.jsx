@@ -78,11 +78,22 @@ const RoupasInfantis = () => {
                             <div className="size-selection">
                                 <h3>Selecione o tamanho:</h3>
                                 <div className="size-buttons">
-                                    <button className="size-button">1</button>
-                                    <button className="size-button">2</button>
-                                    <button className="size-button">3</button>
-                                    <button className="size-button">4</button>
-                                    <button className="size-button">5</button>
+                                <label htmlFor="sizeP">
+                                    P
+                                    <input type="radio" name="size" id="sizeP" value="P" />
+                                    </label>
+                                    <label htmlFor="sizeM">
+                                    M
+                                    <input type="radio" name="size" id="sizeM" value="M" />
+                                    </label>
+                                    <label htmlFor="sizeG">
+                                    G
+                                    <input type="radio" name="size" id="sizeG" value="G" />
+                                    </label>
+                                    <label htmlFor="sizeGG">
+                                    GG
+                                    <input type="radio" name="size" id="sizeGG" value="GG" />
+                                    </label>
                                 </div>
                             </div>
                             <button onClick={closePopup}>Fechar</button>
