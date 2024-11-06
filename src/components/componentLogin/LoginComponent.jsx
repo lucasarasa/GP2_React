@@ -3,20 +3,15 @@ import "./LoginComponent.css";
 import { api } from "../../api/api";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-//teste
+
 export function LoginComponent() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [sucessMessage, setSucessMessage] = useState("");
   const history = useHistory();
 
-  useEffect(() => {
-    getAllPosts()
-  }, [])
-
-  const getAllPosts = async () => {
-    const response = await api.get('/users')
-    setUsuarios(response.data)
+  function reloadPage() {
+    window.location.reload();
   }
 
   const handleSubmit = async (e) => {
@@ -33,8 +28,10 @@ export function LoginComponent() {
           const user = response.data[0];
           if (user.email === email && user.senha === senha) {
             setSucessMessage("Usuário logado com sucesso!");
+            localStorage.setItem("user", JSON.stringify(user));
             setTimeout(() => {
               history.push("/");
+              reloadPage();
             }, 1500);
 
           } else {
