@@ -12,16 +12,18 @@ const RoupasMasculinas = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            try {
-                const response = await api.get('/produtos');
-                setProducts(response.data);
-            } catch (error) {
-                console.error("Erro ao buscar produtos:", error);
-            }
+          try {
+            const response = await api.get("/produtos");
+            const filteredProducts = response.data.filter(
+              (product) => product.categoria === "masculino"
+            );
+            setProducts(filteredProducts);
+          } catch (error) {
+            console.error("Erro ao buscar produtos:", error);
+          }
         };
-
         fetchProducts();
-    }, []);
+      }, []);
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
