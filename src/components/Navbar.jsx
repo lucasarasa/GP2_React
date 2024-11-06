@@ -9,7 +9,6 @@ export function Navbar() {
   const location = useLocation();
   const [user, setUser] = useState(null);
 
-
   useEffect(() => {
     const loggedUser = JSON.parse(localStorage.getItem("user"));
     if (loggedUser) {
@@ -36,7 +35,7 @@ export function Navbar() {
 
     localStorage.removeItem("user");
     setUser(null);
-    window.location.href = "/login";  
+    window.location.href = "/login";
   };
 
   return (

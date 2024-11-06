@@ -4,6 +4,15 @@ import './PedidosComponent.css'
 
 export function PedidosComponent() {
     const [pedidos, setPedidos] = useState([]);
+    const [user, setUser] = useState(null);
+
+
+    useEffect(() => {
+        const loggedUser = JSON.parse(localStorage.getItem("user"));
+        if (loggedUser) {
+            setUser(loggedUser);
+        }
+    }, []);
 
     useEffect(() => {
         const fetchPedidos = async () => {
@@ -26,6 +35,7 @@ export function PedidosComponent() {
                 pedidos.map((pedido) => (
                     <div className='box-pedidos-list' key={pedido.id}>
                         <h2>Pedido #{pedido.id}</h2>
+                        <p>Usuário: {user ? user.username : 'Desconhecido'}</p>
                         <p>Total: R$ {pedido.valorTotal.toFixed(2)}</p>
                         <p>Itens:</p>
                         <ul>

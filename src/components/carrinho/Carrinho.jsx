@@ -71,7 +71,7 @@ export function Carrinho() {
         try {
             const valorTotal = produtos.reduce((total, item) => total + item.preco * item.quantity, 0);
             const pedido = {
-                idUser: "idDoUsuario",
+                idUser: user.id,
                 valorTotal: valorTotal,
                 itens: produtos.map(item => ({
                     idProduto: item.id,
