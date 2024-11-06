@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../api/api';
+import './PedidosComponent.css'
 
-export function Pedidos() {
+export function PedidosComponent() {
     const [pedidos, setPedidos] = useState([]);
 
     useEffect(() => {
@@ -17,11 +18,13 @@ export function Pedidos() {
     }, []);
 
     return (
-        <div>
+        <div className='box-pedidos'>
+            <div className='box-pedidos-title'>
             <h1>Pedidos Realizados</h1>
+            </div>
             {pedidos.length > 0 ? (
                 pedidos.map((pedido) => (
-                    <div key={pedido.id}>
+                    <div className='box-pedidos-list' key={pedido.id}>
                         <h2>Pedido #{pedido.id}</h2>
                         <p>Total: R$ {pedido.valorTotal.toFixed(2)}</p>
                         <p>Itens:</p>
