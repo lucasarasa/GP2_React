@@ -66,10 +66,12 @@ export function Carrinho() {
                 }))
             };
 
-            await api.post('/pedidos', pedido);
-            emptyCart();
-            alert("Compra finalizada com sucesso!");
-            navigate('/pedidos');
+            const response = await api.post('/pedidos', pedido);
+            if(response.status === 201) {
+                alert("Compra finalizada com sucesso!");
+                emptyCart();
+                navigate('/pedidos');
+            }
         } catch (error) {
             console.error("Erro ao finalizar compra:", error);
             alert("Ocorreu um erro ao finalizar a compra. Tente novamente.");

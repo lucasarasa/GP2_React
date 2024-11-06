@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { api } from '../../api/api';
-import './RoupasMasculinas.css'
+import './RoupasMasculinas.css';
 import { useEffect } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 
